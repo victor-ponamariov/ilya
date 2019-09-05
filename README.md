@@ -1,4 +1,4 @@
-# tokenbasedauthentication
+# token-based authentication
 
 ## Project setup
 ```
