@@ -5,7 +5,7 @@
       <input type="email"  v-model="email" placeholder="email"/>
       <input type="password" v-model="password" placeholder="password"/>
     </div>
-    <submit-button text="Submit" @click="onClick"/>
+    <submit-button text="Submit" @click="sendUserData"/>
   </form>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   },
 
   methods: {
-    onClick() {
+    sendUserData() {
         const respone = await axios.post('auth/login', {
           email: this.email,
           password: this.password,
