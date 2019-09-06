@@ -1,30 +1,81 @@
 <template>
   <form action="">
-    <input-login/>
-    <input-password/>
+    <h1>Authorization</h1>
+    <div class="inputs">
+      <input type="email"  v-model="email" placeholder="email"/>
+      <input type="password" v-model="password" placeholder="password"/>
+    </div>
+    <submit-button text="Submit" @click="onClick"/>
   </form>
 </template>
 
 <script>
-import InputLogin from './Base/InputLogin.vue'
-import InputPassword from './Base/InputPassword.vue'
+import axios from '@/axios'
+import SubmitButton from './Base/SubmitButton.vue'
 
 export default {
   components: {
-    'input-login': InputLogin,
-    'input-password': InputPassword
-    },
-  name: 'auth-form'
+    SubmitButton
+  },
+  
+  data() {
+    return {
+      email: '',
+      password: '',
+      token: ''
+    }
+  },
+
+  methods: {
+    onClick() {
+        const respone = await axios.post('auth/login', {
+          email: this.email,
+          password: this.password,
+          module: 'koin',
+        })
+        .then(token => {
+          token => localStorage.setItem('token', token)
+        })
+      }
+    
+    }
+  
 }
 </script>
 
 <style lang="scss">
+  * {
+    font-family: sans-serif;
+  }
+
   form {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     height: 300px;
-    border: 1px solid #000;
-    background-color: hsl(165, 59%, 74%);
+    border-radius: 4px;
+    background-color: #afeaf1;
+    max-width: 600px;
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100px;
+  }
+
+  input {
+    height: 30px;
+    padding-left: 10px;
+    border: none;
+    border-bottom: 1px solid blueviolet;
+    background-color: #afeaf1;
+  }
+
+  input:focus {
+    outline: none;
+    border-bottom: 1px solid white;
   }
 </style>
