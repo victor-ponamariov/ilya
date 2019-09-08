@@ -28,7 +28,7 @@ export default {
 
   methods: {
     sendUserData() {
-        const respone = await axios.post('auth/login', {
+        axios.post('auth/login', {
           email: this.email,
           password: this.password,
           module: 'koin',
