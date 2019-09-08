@@ -33,8 +33,8 @@ export default {
           password: this.password,
           module: 'koin',
         })
-        .then(token => {
-          token => localStorage.setItem('token', token)
+        .then(reponse => {
+          localStorage.setItem('token', response.data.access_token)
         })
       }
     
