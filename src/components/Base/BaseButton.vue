@@ -3,9 +3,6 @@
 </template>
 
 <script>
-  import axios from '@/axios.js'
-
-
   export default {
     props: {
       text: {

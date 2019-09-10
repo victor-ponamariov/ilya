@@ -5,20 +5,20 @@
       <input type="email"  v-model="email" placeholder="email"/>
       <input type="password" v-model="password" placeholder="password"/>
     </div>
-    <submit-button text="Submit" @click="sendUserData"/>
+    <base-button text="Submit" @click="sendUserData"/>
     <button @click.prevent="getAll">TEST STORE</button>
   </form>
 </template>
 
 <script>
 import axios from '@/axios'
-import SubmitButton from './Base/SubmitButton.vue'
+import BaseButton from './Base/BaseButton.vue'
 import { mapActions } from 'vuex'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    SubmitButton
+    BaseButton
   },
   
   data() {
