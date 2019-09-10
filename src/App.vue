@@ -1,20 +1,15 @@
 <template>
   <div id="app">
-    <auth-form/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Form from './components/Form'
-
 export default {
-  components: {
-    'auth-form': Form,
-    },
   name: 'app'
 }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+  @import "./App.scss";
 </style>

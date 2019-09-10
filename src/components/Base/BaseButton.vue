@@ -1,5 +1,5 @@
 <template>
-  <button type="submit" @click.prevent="$emit('click')">{{ text }}</button>
+  <button @click.prevent="$emit('click')">{{ text }}</button>
 </template>
 
 <script>
