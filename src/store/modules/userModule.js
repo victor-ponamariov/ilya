@@ -13,7 +13,7 @@ export default {
       state.currentUser = userData
     },
 
-    setToken(state,token) {
+    setToken(state, token) {
       state.token = token
     }
   },
@@ -24,7 +24,7 @@ export default {
         email: user.email,
         password: user.password,
         module: 'koin',
-      }).then(({data}) => {
+      }).then(({ data }) => {
         commit('setUserInfo', data.user)
         commit('setToken', data.access_token)
         localStorage.setItem('token', this.token)

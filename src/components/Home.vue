@@ -1,17 +1,23 @@
 <template>
   <div id="app">
     <navigation/>
-    <!-- <router-view></router-view> -->
+    <main-content/>
   </div>
 </template>
 
 <script>
 import Navigation from './Navigation'
+import MainContent from './Content'
 
 export default {
   components: {
-    Navigation
+    Navigation,
+    MainContent
   },
 
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

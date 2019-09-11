@@ -1,18 +1,16 @@
 <template>
-  <div class="wrapper">
-    <form>
-      <h1>Sign in</h1>
-      <div class="inputs">
-        <input type="email"  v-model="email" placeholder="email"/>
-        <input type="password" v-model="password" placeholder="password"/>
-      </div>
-      <base-button type="submit" text="Login" @click="auth"/>
-    </form>
-  </div>
+  <form>
+    <h1>Sign in</h1>
+    <div class="inputs">
+      <input type="email"  v-model="email" placeholder="email"/>
+      <input type="password" v-model="password" placeholder="password"/>
+    </div>
+    <base-button type="submit" text="Login" @click="auth"/>
+  </form>
 </template>
 
 <script>
-import BaseButton from './Base/BaseButton.vue'
+import BaseButton from './Base/BaseButton'
 import { mapActions } from 'vuex'
 
 export default {
@@ -44,12 +42,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
   form {
     display: flex;
