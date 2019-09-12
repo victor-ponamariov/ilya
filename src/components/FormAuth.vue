@@ -5,7 +5,7 @@
       <input type="email"  v-model="email" placeholder="email"/>
       <input type="password" v-model="password" placeholder="password"/>
     </div>
-    <base-button type="submit" text="Login" @click="auth"/>
+    <base-button type="submit" @click="auth">Login</base-button>
   </form>
 </template>
 
@@ -26,12 +26,10 @@ export default {
 
   methods: {
     auth() {
-      let data = {
+      this.$store.dispatch('userModule/login', {
         email: this.email,
         password: this.password
-      }
-
-      this.$store.dispatch('userModule/login', {data})
+      })
     },
   }
   

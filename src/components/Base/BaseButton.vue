@@ -1,15 +1,10 @@
 <template>
-  <button @click.prevent="$emit('click')">{{ text }}</button>
+  <button @click.prevent="$emit('click')"><slot></slot></button>
 </template>
 
 <script>
   export default {
-    props: {
-      text: {
-        type: String,
-        required: true
-      } 
-    }
+    
   }
 </script>
 

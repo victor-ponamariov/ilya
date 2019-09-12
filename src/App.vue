@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-  @import './App.scss';
+<style lang="scss">
+  @import '../public/scss/global';
 </style>

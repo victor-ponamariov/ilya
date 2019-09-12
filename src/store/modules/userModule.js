@@ -17,6 +17,8 @@ export default {
 
     setToken(state, token) {
       state.token = token
+      localStorage.setItem('token', state.token)
+
     }
   },
 
@@ -29,9 +31,6 @@ export default {
       }).then(({ data }) => {
         commit('setUserInfo', data.user)
         commit('setToken', data.access_token)
-        console.log(this.token)
-        localStorage.setItem('token', this.token)
-        console.log(this.token)
       }) 
     }
   },
