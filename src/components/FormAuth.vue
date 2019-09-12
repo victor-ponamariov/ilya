@@ -11,7 +11,6 @@
 
 <script>
 import BaseButton from './Base/BaseButton'
-import { mapActions } from 'vuex'
 
 export default {
   components: {
@@ -26,15 +25,13 @@ export default {
   },
 
   methods: {
-    ...mapActions(['login']),
-
     auth() {
       let data = {
         email: this.email,
         password: this.password
       }
 
-      this.login(data)
+      this.$store.dispatch('userModule/login', {data})
     },
   }
   

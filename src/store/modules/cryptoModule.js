@@ -1,26 +1,30 @@
 import axios from '@/axios'
 
 export default {
+  namespaced: true,
+
   state: {
-    cryptos: [],
+    coins: [],
   },
   
   getters: {
-    allCryptos(state) {
-      return state.cryptos
+    allCoins(state) {
+      return state.coins
     }
   },
 
   mutations: {
-    setCryprocurrency(state, cryptos) {
-      state.cryptos = cryptos
+    setCryprocurrency(state, coinsInfo) {
+      state.coins = coinsInfo
     }
   },
 
   actions: {
     async getCryptocurrency({ commit }) {
-      this.$axios.defaults.baseURL = "https://api.coincap.io"
-      await this.$axios('/v2/assets')
+      await axios({
+        url: '/v2/assets',
+        baseURL: 'https://api.coincap.io'
+      })
       .then(res => commit('setCryprocurrency', res.data.data))
       .catch(err => console.error('Error', err))
     }

@@ -1,8 +1,8 @@
 <template>
   <div class="app">
-    <div class="crypto-info" v-for="crypto in allCryptos" :key="crypto.id">
-      <h1>{{ crypto.id }} / {{ crypto.symbol }}</h1>
-      <h2>{{ crypto.priceUsd }} USD</h2>
+    <div class="crypto-info" v-for="coin in allCoins" :key="coin.id">
+      <h1>{{ coin.id }} / {{ coin.symbol }}</h1>
+      <h2>{{ coin.priceUsd }} USD</h2>
     </div>
   </div>
 </template>
@@ -11,14 +11,14 @@
 
 export default {
   computed: {
-    allCryptos() {
-      return this.$store.getters.allCryptos
+    allCoins() {
+      return this.$store.getters['cryptoModule/allCoins']
     },
   },
 
-  async mounted() {
-    this.$store.dispatch('getCryptocurrency');
-  }
+  created() {
+    this.$store.dispatch('cryptoModule/getCryptocurrency');    
+  },
 }
 </script>
 

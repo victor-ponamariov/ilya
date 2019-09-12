@@ -1,6 +1,8 @@
 import axios from '@/axios'
 
 export default {
+  namespaced: true,
+
   state: {
     currentUser: {},
     token: '', 
@@ -27,7 +29,9 @@ export default {
       }).then(({ data }) => {
         commit('setUserInfo', data.user)
         commit('setToken', data.access_token)
+        console.log(this.token)
         localStorage.setItem('token', this.token)
+        console.log(this.token)
       }) 
     }
   },
