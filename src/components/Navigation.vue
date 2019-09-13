@@ -3,14 +3,29 @@
     <div class="logo"></div>
     <nav>
       <router-link class="nav-link" to="/">Home</router-link>
-      <router-link class="nav-link" to="/login">Login</router-link>
+      <router-link class="nav-link" to="/login" v-if="!isLoggedIn">Login</router-link>
+      <router-link class="nav-link" to="/login" v-if="isLoggedIn">Logout</router-link>
+      <router-link class="nav-link" to="/profile">Profile</router-link>
     </nav>
   </header>
 </template>
 
 <script>
 export default {
-  
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters['isLoggedIn']
+    }
+  },
+
+  methods: {
+    logout() {
+      this.$store.dispatch('logout')
+      .then(() => {
+        this.$router.push('/login')
+      })
+    }
+  }
 }
 </script>
 
